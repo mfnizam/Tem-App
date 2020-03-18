@@ -1,0 +1,90 @@
+<ion-header>
+  <ion-navbar>
+    <div (click)="ShowButton()" class="menune"> </div>
+  </ion-navbar>
+</ion-header>
+<!-- stroke-dasharray="922" stroke-dashoffset="634" -->
+
+<div *ngIf="showSelected" class="history" >
+
+  <div class="row1">
+    <ion-icon name="arrow-back" color="whitee" (click)="HideButton()" class="iconback"></ion-icon>
+    <div class="judul">History</div>
+  </div>
+
+   <div class="row2">
+     <table>
+       <tr>
+         <td class="jud">Tgl</td>
+         <td class="jud">Nilai</td>
+         <td class="jud">Status</td>
+       </tr>
+       <tr *ngFor="let hisstory of hissk; let i = index" class="tre">
+         <td>{{conversiTglWaktu(hisstory.tgl)}}</td>
+         <td>{{hisstory.kekeruhan}}</td>
+         <td><div [ngClass]="hisstory.kekeruhan < 50? 'sgood' : 'sbad'">{{cekStatus(hisstory.kekeruhan)}}</div></td>
+       </tr>
+     </table>
+   </div>
+</div>
+
+<ion-content>
+  <ion-grid>
+    <div class="ket">
+      <div class="low">
+        <div class="ongko">0</div>
+        <div class="keteranan">Low</div>
+      </div>
+ 
+      <div class="high">
+        <div class="ongko">{{kekeruhan.highNow}}</div>
+        <div class="keteranan">High</div>
+      </div>
+    </div>
+
+    <div class="bunder1">
+      <div class="bunder2">
+        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 300 300" style="enable-background:new 0 0 300 300;" xml:space="preserve">
+          <style type="text/css">
+            .ast0{fill:#292929;}
+            .ast1{fill:none;stroke:#363636;stroke-width:16;stroke-linejoin:round;stroke-miterlimit:10;}
+            .ast2{fill:none;stroke:#72DAE6;stroke-width:16;stroke-linejoin:round;stroke-miterlimit:10;}
+            .ast3{fill:#4C9CA3;}
+            .ast4{font-family:'Segoe UI';font-weight: lighter;}
+            .ast5{font-size:27.1305px;}
+            .ast6{font-size:147.2226px;}
+          </style>
+          <circle class="ast0" cx="150" cy="150" r="150"/> 
+          <path class="ast1" d="M100.8,283.3C46.6,263.3,8,211.2,8,150C8,71.6,71.6,8,150,8s142,63.6,142,142c0,61.1-38.6,113.3-92.8,133.3"/>
+          <path class="ast2"  stroke-dasharray="750" stroke-dashoffset="1598" d="M100.8,283.3C46.6,263.3,8,211.2,8,150C8,71.6,71.6,8,150,8s142,63.6,142,142c0,61.1-38.6,113.3-92.8,133.3"/>
+          <text transform="matrix(1 0 0 1 78.4292 73.9492)" class="ast3 ast4 ast5" x="75" y="0" text-anchor="middle">TURBIDITY</text>
+          <text transform="matrix(1 0 0 1 70.6748 211.1943)" class="ast3 ast4 ast6" x="85" y="0" text-anchor="middle">{{kekeruhan.kekeruhan}}</text>
+        </svg>
+      </div> 
+    </div>
+
+    <div class="cobak">
+      <div class="cobak2" style="flex-direction: column; align-items: center;">
+        <!-- <div class="aass" style="flex: 1;">
+          <div class="labele1">0</div>
+          <div class="labelmin">-</div>
+          <div class="labele2">50</div>
+        </div> -->
+        <div style="display: flex; flex-direction: row;">
+          <!-- <ion-item>
+            <ion-label color="primary"  floating>Low Turdibity</ion-label>
+            <ion-input ></ion-input>
+          </ion-item> -->
+
+          <ion-item>
+            <ion-label color="primary" floating>High Turdibity</ion-label>
+            <ion-input type="number" [(ngModel)]="kekeruhan.highSet" [value]="kekeruhan.highSet"></ion-input>
+          </ion-item>
+        </div>
+      </div>
+      <div class="bitton">
+        <div class="aaa" (click)="kirimSet()">SET</div> 
+      </div> 
+    </div>
+  </ion-grid> 
+</ion-content>

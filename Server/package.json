@@ -1,0 +1,30 @@
+{
+  "name": "tampi",
+  "version": "1.0.0",
+  "description": "Sample express and mosca server",
+  "dependencies": {
+    "bcryptjs": "*",
+    "body-parser": "*",
+    "cors": "*",
+    "express": "^4.16.2",
+    "jsonwebtoken": "*",
+    "mongoose": "^5.0.10",
+    "mosca": "^2.5.2",
+    "mqtt": "^2.18.0",
+    "npm": "^6.7.0",
+    "passport": "*",
+    "passport-jwt": "*",
+    "socket.io": "*"
+  },
+  "devDependencies": {
+    "concurrently": "^4.1.0"
+  },
+  "scripts": {
+    "local": "concurrently \"nodemon server.js\" \"nodemon server-tcp.js\"",
+    "start": "node server.js",
+    "start-tcp": "node server-tcp.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT"
+}

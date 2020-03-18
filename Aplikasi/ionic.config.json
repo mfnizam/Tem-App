@@ -1,0 +1,8 @@
+{
+  "name": "posyandu",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular",
+  "app_id": ""
+}
